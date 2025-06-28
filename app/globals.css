@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --funkyBlue: #00e5ff; /* Electric Blue */
+    --funkyPurple: #8a2be2; /* Synth Purple */
+    --funkyPink: #ff00ff; /* Neon Pink */
+    --funkyOrange: #ffa500; /* Bright Orange */
+    --funkyGreen: #00ff00; /* Cyber Green */
+    --funkyMint: #4ecdc4;
+    --funkyCoral: #ff7675;
+    --funkyYellow: #ffd23f;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom colors as CSS variables for easier use */
+:root {
+  --font-space-mono: "Space Mono", monospace;
+}
+
+/* Global CSS for Nothing Design Feel */
+body {
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  overflow-x: hidden;
+}
+
+/* Nav - Keep subtle glassmorphism for "Nothing Design" website feel */
+.glass-effect-nav {
+  backdrop-filter: blur(5px) saturate(120%);
+  -webkit-backdrop-filter: blur(5px) saturate(120%);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-effect-nav:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text shadow for logo text */
+.logo-text-shadow {
+  text-shadow: 0px 0px 15px #fff, 0px 0px 30px var(--funkyBlue), 0px 0px 45px var(--funkyPink);
+}
+
+/* Scroll Fade-In/Out Animation Styles */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Chat bubble styles */
+.ai-message-bubble {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem 0.75rem 0.75rem 0.25rem;
+  max-width: 80%;
+  align-self: flex-start;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.user-message-bubble {
+  background-color: rgba(0, 229, 255, 0.7);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem 0.75rem 0.25rem 0.75rem;
+  max-width: 80%;
+  align-self: flex-end;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* AI Interaction Section */
+.ai-interaction-section {
+  border: 2px solid var(--funkyBlue);
+  box-shadow: 0 0 15px var(--funkyBlue), 0 0 30px rgba(0, 240, 255, 0.7), 0 0 45px rgba(0, 240, 255, 0.5);
+  background-color: rgba(13, 13, 13, 0.8);
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style for the chat messages container */
+.chat-messages-container {
+  background-color: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(75, 85, 99, 0.5);
+  box-shadow: inset 0 0 8px rgba(0, 229, 255, 0.2);
+}
+
+/* Feature Cards */
+.feature-card {
+  background-color: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(75, 85, 99, 0.7);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 0 20px var(--funkyBlue);
+  border-color: var(--funkyBlue);
+}
+
+/* Main content wrapper */
+.main-content-wrapper {
+  border: 2px solid var(--funkyBlue);
+  box-shadow: 0 0 15px var(--funkyBlue), 0 0 30px rgba(0, 240, 255, 0.7), 0 0 45px rgba(0, 240, 255, 0.5);
+  background-color: rgba(13, 13, 13, 0.8);
+  animation: neon-pulse 8s infinite alternate ease-in-out;
+}
+
+/* Keyframes for neon pulse animation */
+@keyframes neon-pulse {
+  0% {
+    border-color: var(--funkyBlue);
+    box-shadow: 0 0 15px var(--funkyBlue), 0 0 30px rgba(0, 240, 255, 0.7), 0 0 45px rgba(0, 240, 255, 0.5);
+  }
+  25% {
+    border-color: var(--funkyPink);
+    box-shadow: 0 0 15px var(--funkyPink), 0 0 30px rgba(255, 0, 255, 0.7), 0 0 45px rgba(255, 0, 255, 0.5);
+  }
+  50% {
+    border-color: var(--funkyGreen);
+    box-shadow: 0 0 15px var(--funkyGreen), 0 0 30px rgba(0, 255, 0, 0.7), 0 0 45px rgba(0, 255, 0, 0.5);
+  }
+  75% {
+    border-color: var(--funkyOrange);
+    box-shadow: 0 0 15px var(--funkyOrange), 0 0 30px rgba(255, 165, 0, 0.7), 0 0 45px rgba(255, 165, 0, 0.5);
+  }
+  100% {
+    border-color: var(--funkyBlue);
+    box-shadow: 0 0 15px var(--funkyBlue), 0 0 30px rgba(0, 240, 255, 0.7), 0 0 45px rgba(0, 240, 255, 0.5);
+  }
+}
+
+/* "Unlock Your Voice" button shine effect */
+.shine-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shine-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.shine-button:hover::before {
+  left: 125%;
+}
+
+/* "Get Started for Free" button pulse grow effect */
+.pulse-grow-button:hover {
+  animation: pulse-grow 0.8s ease-out forwards;
+}
+
+@keyframes pulse-grow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.7), 0 0 40px rgba(138, 43, 226, 0.7);
+  }
+  100% {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 30px rgba(138, 43, 226, 0.5);
+  }
+}
+
+/* Custom Tailwind Colors */
+.bg-funky-blue {
+  background-color: var(--funkyBlue);
+}
+.text-funky-blue {
+  color: var(--funkyBlue);
+}
+.bg-funky-purple {
+  background-color: var(--funkyPurple);
+}
+.text-funky-purple {
+  color: var(--funkyPurple);
+}
+.bg-funky-pink {
+  background-color: var(--funkyPink);
+}
+.text-funky-pink {
+  color: var(--funkyPink);
+}
+.bg-funky-orange {
+  background-color: var(--funkyOrange);
+}
+.text-funky-orange {
+  color: var(--funkyOrange);
+}
+.bg-funky-green {
+  background-color: var(--funkyGreen);
+}
+.text-funky-green {
+  color: var(--funkyGreen);
+}
+.bg-funky-mint {
+  background-color: var(--funkyMint);
+}
+.text-funky-mint {
+  color: var(--funkyMint);
+}
+.bg-funky-coral {
+  background-color: var(--funkyCoral);
+}
+.text-funky-coral {
+  color: var(--funkyCoral);
+}
+.bg-funky-yellow {
+  background-color: var(--funkyYellow);
+}
+.text-funky-yellow {
+  color: var(--funkyYellow);
+}
+
+/* Pro Trial Banner */
+.pro-trial-banner {
+  background: linear-gradient(135deg, var(--funkyPurple), var(--funkyBlue));
+  border: 1px solid var(--funkyPink);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+/* Contributor cards */
+.contributor-card {
+  background-color: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(75, 85, 99, 0.7);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), 0 0 25px var(--funkyPink), 0 0 40px var(--funkyPurple);
+  border-color: var(--funkyPink);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+  border-radius: 0.75rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+/* Smooth animations */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 0 2px #111827 inset;
+}
+
+/* Breathing animation for wellness features */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Gentle pulse for important elements */
+@keyframes gentle-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.gentle-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
